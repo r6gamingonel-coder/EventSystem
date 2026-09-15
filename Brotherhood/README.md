@@ -98,7 +98,7 @@ it switches the moment `BLOB_READ_WRITE_TOKEN` exists, no code changes needed).
 
 1. **Import the repo** — On [vercel.com](https://vercel.com), "Add New… → Project",
    pick this GitHub repo. Since the app lives in a subfolder, set
-   **Root Directory** to `MarGeorgesChurchSys` in the import screen (Framework
+   **Root Directory** to `Brotherhood` in the import screen (Framework
    Preset should auto-detect as Next.js once you do).
 2. **Add a Postgres database** — In the new project → **Storage** tab → **Create
    Database** → choose **Neon** (Vercel's built-in Postgres option, free tier).

@@ -11,7 +11,8 @@ Dashboard) كاملة لإدارة كل المحتوى.
 - **Tailwind CSS 4** for styling (custom warm, church-inspired design system)
 - Custom **JWT session auth** (`jose` + `bcryptjs`) for the admin — no third-party auth
   provider, no public user accounts (the public site needs no login at all)
-- **sharp** for image optimization on upload, stored on local disk (`public/uploads`)
+- **sharp** for image optimization on upload; stored on local disk (`public/uploads`)
+  in dev, or **Vercel Blob** in production (auto-selected — see `src/lib/media.ts`)
 - `zod` for input validation on every API route
 
 No CMS, no headless commerce, no payment/ticketing system — the project intentionally
@@ -89,18 +90,62 @@ for the dashboard.
 
 ## 6. Deployment
 
+### Option A — Vercel (recommended, matches this project's setup)
+
+Vercel's filesystem is read-only/ephemeral, so image uploads use **Vercel Blob**
+instead of local disk automatically once it's enabled (see `src/lib/media.ts` —
+it switches the moment `BLOB_READ_WRITE_TOKEN` exists, no code changes needed).
+
+1. **Import the repo** — On [vercel.com](https://vercel.com), "Add New… → Project",
+   pick this GitHub repo. Since the app lives in a subfolder, set
+   **Root Directory** to `MarGeorgesChurchSys` in the import screen (Framework
+   Preset should auto-detect as Next.js once you do).
+2. **Add a Postgres database** — In the new project → **Storage** tab → **Create
+   Database** → choose **Neon** (Vercel's built-in Postgres option, free tier).
+   This automatically sets `DATABASE_URL` (and a few related vars) as environment
+   variables on the project — no manual copy-pasting needed.
+3. **Add Vercel Blob storage** — Same **Storage** tab → **Create Database** →
+   **Blob**. This automatically sets `BLOB_READ_WRITE_TOKEN`.
+4. **Add the remaining environment variables** — Project → **Settings →
+   Environment Variables**, add:
+   - `AUTH_SECRET` — generate one with `openssl rand -base64 32`
+   - `SUPER_ADMIN_NAME`, `SUPER_ADMIN_EMAIL`, `SUPER_ADMIN_PASSWORD` — used once by the seed step below
+   - `TIMEZONE` — e.g. `Asia/Baghdad`
+   - `NEXT_PUBLIC_SITE_URL` — your Vercel URL, e.g. `https://your-project.vercel.app`
+     (Vercel also auto-provides `VERCEL_URL`, but this explicit one keeps share
+     links stable even if the domain changes)
+5. **Deploy** — Vercel builds automatically on push (`postinstall` already runs
+   `prisma generate`, so the Prisma Client is always in sync with the schema).
+6. **Run the database migration + seed once**, from your own machine, pointed at
+   the production database (copy `DATABASE_URL` from Vercel's Storage tab into a
+   local `.env.production.local`, or export it directly in your shell):
+   ```bash
+   DATABASE_URL="<paste the Vercel/Neon connection string>" npx prisma migrate deploy
+   DATABASE_URL="<same>" SUPER_ADMIN_EMAIL="..." SUPER_ADMIN_PASSWORD="..." npx tsx prisma/seed.ts
+   ```
+   (`migrate deploy`, unlike `migrate dev`, only applies existing migrations — it
+   never prompts or generates new ones, which is what you want against a live DB.)
+7. Visit `https://your-project.vercel.app/admin/login` and sign in with the
+   Super Admin credentials you just seeded, then **change the password**
+   immediately under الإعدادات.
+
+From then on, every `git push` to the connected branch redeploys automatically.
+
+### Option B — Any Node host (VPS, Railway, Render, etc.)
+
 ```bash
 npm run build
 npm run start
 ```
 
 - Set all variables from `.env.example` as real environment variables on the host.
-- Run `npx prisma migrate deploy` (not `migrate dev`) as part of your deploy step —
-  it applies pending migrations without prompting or generating new ones.
-- `public/uploads` must be a **persistent, writable** directory across deploys —
-  on a platform with an ephemeral filesystem (e.g. most serverless hosts), mount a
-  persistent volume or point the storage adapter (`src/lib/media.ts`) at an
-  object-storage bucket instead of local disk.
+- Run `npx prisma migrate deploy` (not `migrate dev`) as part of your deploy step.
+- If the host's filesystem is persistent (a VPS, for example), local-disk uploads
+  under `public/uploads` work as-is — just make sure that directory survives
+  redeploys/restarts. If it's ephemeral (most PaaS/serverless hosts), set
+  `BLOB_READ_WRITE_TOKEN` (works on any host, not just Vercel — create a Blob
+  store from a Vercel account even if the app itself is hosted elsewhere) or
+  adapt `src/lib/media.ts` to your own object-storage provider.
 - Use a strong, unique `AUTH_SECRET` in production (never reuse the dev value).
 
 ## 7. Backups
@@ -112,8 +157,9 @@ the frontend). Back up regularly with your Postgres provider's tooling, e.g.:
 pg_dump "$DATABASE_URL" > backup-$(date +%F).sql
 ```
 
-Also back up the `public/uploads` directory (or your object-storage bucket) — it
-holds every uploaded image referenced by the database.
+Also back up your uploaded images: the `public/uploads` directory in local-disk
+mode, or your Vercel Blob store's contents in production (download via the
+[Vercel Blob dashboard](https://vercel.com/dashboard/stores) or its API).
 
 ## Notes on architecture choices
 

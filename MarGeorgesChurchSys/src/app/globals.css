@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  /* Warm, church-inspired palette:
+     deep maroon (faith/tradition) + warm gold (light) + cream (warmth) */
+  --color-ink: #2a1f1a;
+  --color-ink-soft: #5c4d44;
+
+  --color-maroon-900: #3d0f1a;
+  --color-maroon-800: #5a1524;
+  --color-maroon-700: #7a1f2e;
+  --color-maroon-600: #952838;
+
+  --color-gold-600: #a9791f;
+  --color-gold-500: #c9982f;
+  --color-gold-400: #dcb45c;
+  --color-gold-300: #ead6a3;
+
+  --color-cream-50: #fbf7f0;
+  --color-cream-100: #f6efe2;
+  --color-cream-200: #ede0c8;
+
+  --color-line: #e6d9c2;
+
+  --font-arabic: var(--font-cairo);
+}
+
+@theme inline {
+  --color-background: var(--color-cream-50);
+  --color-foreground: var(--color-ink);
+  --font-sans: var(--font-arabic);
+
+  --color-brand-ink: var(--color-ink);
+  --color-brand-ink-soft: var(--color-ink-soft);
+  --color-brand-maroon-900: var(--color-maroon-900);
+  --color-brand-maroon-800: var(--color-maroon-800);
+  --color-brand-maroon-700: var(--color-maroon-700);
+  --color-brand-maroon-600: var(--color-maroon-600);
+  --color-brand-gold-600: var(--color-gold-600);
+  --color-brand-gold-500: var(--color-gold-500);
+  --color-brand-gold-400: var(--color-gold-400);
+  --color-brand-gold-300: var(--color-gold-300);
+  --color-brand-cream-50: var(--color-cream-50);
+  --color-brand-cream-100: var(--color-cream-100);
+  --color-brand-cream-200: var(--color-cream-200);
+  --color-brand-line: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* Visible, accessible focus ring for keyboard users, on our warm palette */
+:focus-visible {
+  outline: 2px solid var(--color-gold-600);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Subtle "light trail" accent used sparingly to evoke "the path" */
+.path-glow {
+  background: radial-gradient(
+    60% 100% at 50% 0%,
+    color-mix(in srgb, var(--color-gold-400) 18%, transparent),
+    transparent 70%
+  );
+}

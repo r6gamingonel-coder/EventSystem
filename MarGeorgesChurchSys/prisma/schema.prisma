@@ -1,0 +1,327 @@
+// Prisma schema — Brotherhood of the Path of Love (أخوية طريق المحبة)
+// Church: St. George Chaldean Church (كنيسة مار كوركيس الكلدانية)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------- Enums ----------
+
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+}
+
+enum ContentStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum JoinRequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  ARCHIVED
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum AuditAction {
+  CREATE
+  UPDATE
+  DELETE
+  PUBLISH
+  UNPUBLISH
+  ARCHIVE
+  RESTORE
+  APPROVE
+  REJECT
+  LOGIN
+  LOGOUT
+}
+
+enum AuditEntity {
+  ACTIVITY
+  ACTIVITY_CATEGORY
+  ALBUM
+  PHOTO
+  JOIN_REQUEST
+  EVENT_REGISTRATION
+  SETTINGS
+  STORY
+  ADMIN
+  MEDIA_ASSET
+}
+
+// ---------- Admin & Auth ----------
+
+model Admin {
+  id           String    @id @default(cuid())
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         AdminRole @default(ADMIN)
+  isActive     Boolean   @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  auditLogs AuditLog[]
+
+  @@map("admins")
+}
+
+model AuditLog {
+  id         String      @id @default(cuid())
+  admin      Admin?      @relation(fields: [adminId], references: [id], onDelete: SetNull)
+  adminId    String?
+  action     AuditAction
+  entity     AuditEntity
+  entityId   String?
+  entityName String?
+  metadata   Json?
+  createdAt  DateTime    @default(now())
+
+  @@index([entity, entityId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+// ---------- Site-wide singleton content ----------
+
+// Singleton row (id = "main") holding all editable site-wide content:
+// hero, story, contact/social, join section, footer.
+model SiteSettings {
+  id String @id @default("main")
+
+  // Identity
+  brotherhoodName String @default("أخوية طريق المحبة")
+  churchName      String @default("كنيسة مار كوركيس الكلدانية")
+
+  // Hero section (Home)
+  heroImageId      String?
+  heroImage        MediaAsset? @relation("HeroImage", fields: [heroImageId], references: [id], onDelete: SetNull)
+  heroTitle        String      @default("أخوية طريق المحبة")
+  heroSubtitle     String      @default("معاً في طريق المحبة والإيمان والخدمة")
+  heroPrimaryLabel String      @default("انضم إلى الأخوية")
+  heroPrimaryHref  String      @default("/join")
+  heroSecondaryLabel String    @default("اكتشف نشاطاتنا")
+  heroSecondaryHref  String    @default("/activities")
+
+  // Story preview (Home) — full story lives in StoryPage model
+  storyPreviewText String? @default("قصة أخوية طريق المحبة هي قصة محبة وإيمان وخدمة، بدأت من رحم كنيسة مار كوركيس الكلدانية لتجمع شباباً آمنوا أن المحبة طريق.")
+
+  // Join section
+  joinTitle       String @default("انضم إلى أخوية طريق المحبة")
+  joinDescription String @default("إذا كنت ترغب بأن تكون جزءاً من عائلة طريق المحبة، يسعدنا انضمامك إلينا.")
+
+  // Contact & social
+  phone        String?
+  whatsapp     String?
+  email        String?
+  address      String?
+  instagramUrl String?
+  facebookUrl  String?
+  mapsUrl      String?
+
+  // Footer
+  footerText String? @default("أخوية طريق المحبة — كنيسة مار كوركيس الكلدانية")
+
+  updatedAt DateTime @updatedAt
+
+  @@map("site_settings")
+}
+
+// ---------- Story page ----------
+
+model StoryPage {
+  id            String  @id @default("main")
+  title         String  @default("قصتنا")
+  intro         String  @default("قصة أخوية طريق المحبة — من البداية إلى اليوم.")
+  content       String  @default("هذا محتوى مبدئي لقصة الأخوية. يمكن تعديله بالكامل من لوحة التحكم: كيف بدأت الأخوية، لماذا تأسست، رسالتها، علاقتها بكنيسة مار كوركيس الكلدانية، وماذا تقدم لشباب الكنيسة.")
+  imageId       String?
+  image         MediaAsset? @relation(fields: [imageId], references: [id], onDelete: SetNull)
+  showTimeline  Boolean @default(true)
+  updatedAt     DateTime @updatedAt
+
+  milestones StoryMilestone[]
+
+  @@map("story_page")
+}
+
+model StoryMilestone {
+  id          String   @id @default(cuid())
+  story       StoryPage @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  storyId     String   @default("main")
+  title       String
+  description String
+  order       Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([storyId, order])
+  @@map("story_milestones")
+}
+
+// ---------- Activities ----------
+
+model ActivityCategory {
+  id        String     @id @default(cuid())
+  name      String     @unique
+  slug      String     @unique
+  icon      String?    // emoji or icon key, e.g. "🎉"
+  order     Int        @default(0)
+  isSystem  Boolean    @default(false) // seeded default categories, cannot be deleted (only renamed)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  activities Activity[]
+
+  @@map("activity_categories")
+}
+
+model Activity {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  description String
+
+  category   ActivityCategory @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  categoryId String
+
+  coverImageId String?
+  coverImage   MediaAsset? @relation("ActivityCover", fields: [coverImageId], references: [id], onDelete: SetNull)
+
+  date     DateTime // date + time combined (stored in UTC, displayed in project timezone)
+  location String   @default("كنيسة مار كوركيس الكلدانية")
+
+  status   ContentStatus @default(DRAFT)
+  featured Boolean       @default(false)
+
+  registrationEnabled Boolean @default(false)
+
+  viewCount Int @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  images        ActivityImage[]
+  registrations EventRegistration[]
+
+  @@index([status, date])
+  @@index([categoryId])
+  @@map("activities")
+}
+
+model ActivityImage {
+  id         String      @id @default(cuid())
+  activity   Activity    @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  activityId String
+  mediaAsset MediaAsset  @relation(fields: [mediaAssetId], references: [id], onDelete: Cascade)
+  mediaAssetId String
+  order      Int         @default(0)
+
+  @@index([activityId, order])
+  @@map("activity_images")
+}
+
+model EventRegistration {
+  id          String   @id @default(cuid())
+  activity    Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  activityId  String
+  fullName    String
+  phone       String
+  whatsapp    String?
+  partySize   Int      @default(1)
+  notes       String?
+  createdAt   DateTime @default(now())
+
+  @@index([activityId])
+  @@map("event_registrations")
+}
+
+// ---------- Gallery ----------
+
+model Album {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  description String?
+  coverImageId String?
+  coverImage  MediaAsset?   @relation("AlbumCover", fields: [coverImageId], references: [id], onDelete: SetNull)
+  status      ContentStatus @default(DRAFT)
+  order       Int           @default(0)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  photos Photo[]
+
+  @@map("albums")
+}
+
+model Photo {
+  id           String     @id @default(cuid())
+  album        Album      @relation(fields: [albumId], references: [id], onDelete: Cascade)
+  albumId      String
+  mediaAsset   MediaAsset @relation(fields: [mediaAssetId], references: [id], onDelete: Cascade)
+  mediaAssetId String
+  caption      String?
+  order        Int        @default(0)
+  createdAt    DateTime   @default(now())
+
+  @@index([albumId, order])
+  @@map("photos")
+}
+
+// ---------- Media Library ----------
+
+model MediaAsset {
+  id        String   @id @default(cuid())
+  url       String
+  width     Int?
+  height    Int?
+  blurDataUrl String?
+  alt       String?
+  sizeBytes Int?
+  createdAt DateTime @default(now())
+
+  heroFor      SiteSettings[] @relation("HeroImage")
+  storyFor     StoryPage[]
+  activityCovers Activity[]   @relation("ActivityCover")
+  activityImages ActivityImage[]
+  albumCovers  Album[]        @relation("AlbumCover")
+  photos       Photo[]
+
+  @@map("media_assets")
+}
+
+// ---------- Join Requests (Membership) ----------
+
+model JoinRequest {
+  id          String            @id @default(cuid())
+  fullName    String
+  gender      Gender
+  birthDate   DateTime
+  phone       String
+  whatsapp    String?
+  email       String?
+  area        String
+  occupation  String?
+  notes       String?
+  status      JoinRequestStatus @default(PENDING)
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@index([status, createdAt])
+  @@map("join_requests")
+}

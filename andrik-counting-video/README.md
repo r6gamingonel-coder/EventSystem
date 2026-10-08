@@ -16,3 +16,9 @@ Swapping in a real child's voice: put one clip per line in `source/audio/` named
 `endrick_counting_1_to_10_v5_motion.mp4`: the motion of the reference clip (`source/reference_one_clip.mp4`,
 Endrick saying "one") is transferred onto each number picture with optical flow (`source/motion.py`, `masks.py`, `render5.py`).
 Only Endrick is moved; the background and the number stay still. The voice is still the Kokoro TTS voice.
+
+## v6 (hybrid)
+
+`endrick_counting_1_to_10_v6_hybrid.mp4`: number ONE is the real reference clip (original motion and audio, unedited,
+including its watermark); numbers 2-10 use the clean v4 pictures with the TTS voice.
+When clips for 2-10 exist, drop them in and replace `clip_sprite` usage for each number.

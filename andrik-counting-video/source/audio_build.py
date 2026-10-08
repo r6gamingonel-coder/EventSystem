@@ -24,9 +24,20 @@ for i in range(1, 11):
     tb = TB + (i-1)*SLOT_B + 0.4
     put(sfx, tb-0.02, bell(660 + 40*i), 0.35)
     for k in range(i):
-        put(sfx, tb + 0.9 + k*0.22, pop()*(0.8 + 0.03*k), 0.4)
+        put(sfx, tb + 0.9 + k*0.2, pop()*(0.8 + 0.03*k), 0.4)
     tc = TC + (i-1)*SLOT_C
     put(sfx, tc-0.02, bell(660 + 40*i), 0.25)
+def clap():
+    t = np.arange(int(0.09*SR))/SR; n = rng0.randn(len(t)); n = np.diff(n, prepend=0)
+    return n*np.exp(-t*55)
+rng0 = np.random.RandomState(3)
+def claps(t0, dur, g=0.5):
+    for c in np.arange(0, dur, 0.11): put(sfx, t0 + c + rng0.uniform(0, 0.05), clap()*rng0.uniform(0.5, 1), g)
+for tt, nm, _ in V:
+    if nm in ("p_good", "p_super", "p_great", "p_almost", "r_right", "r_keep", "r_one"):
+        for j, f in enumerate([880, 1175, 1568]): put(sfx, tt + j*0.07, tone(f, 0.4, 7, (1, 2), 0.5), 0.2)
+    if nm in ("p_hooray",): claps(tt, 1.3, 0.35); [put(sfx, tt + j*0.08, tone(f, 0.7, 4, (1, 2), 0.6), 0.3) for j, f in enumerate([523, 659, 784, 1047])]
+claps(T_WOW + 0.2, 2.6, 0.4)
 # tada at wow + at start
 for j, f in enumerate([523, 659, 784, 1047]):
     put(sfx, T_WOW-0.05 + j*0.09, tone(f, 0.8, 4, (1, 2), 0.6), 0.35)

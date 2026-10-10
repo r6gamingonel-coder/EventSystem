@@ -22,3 +22,9 @@ Only Endrick is moved; the background and the number stay still. The voice is st
 `endrick_counting_1_to_10_v6_hybrid.mp4`: number ONE is the real reference clip (original motion and audio, unedited,
 including its watermark); numbers 2-10 use the clean v4 pictures with the TTS voice.
 When clips for 2-10 exist, drop them in and replace `clip_sprite` usage for each number.
+
+## v7 (real clips)
+
+`endrick_counting_1_to_10_v7_real_clips.mp4` is built from the user's ten CapCut AI clips (IMG_0320 ... IMG_0347, not committed because of size):
+title card, overview clip (IMG_0347), then ONE to TEN in order, an end card, plus a compact ten-frame and progress stars on top of each clip.
+There is no clip for SIX: it is a picture slide with the TTS voice (`source/timeline7.py`, kind "six"). Replace it with a real clip when available.

@@ -1,0 +1,990 @@
+{
+  "meta": {
+    "title": "نتعلم الألوان مع أصدقاء الحيوانات | EA KIDS",
+    "language": "ar",
+    "format": "landscape",
+    "category": "colors",
+    "ageMin": 3,
+    "ageMax": 6,
+    "kit": "colors",
+    "targetDurationSec": 90,
+    "visualStyle": "flat-friendly",
+    "narrationStyle": "warm-teacher",
+    "difficulty": "easy",
+    "generator": {
+      "provider": "offline_templates",
+      "model": "colors",
+      "at": "2026-10-10T03:21:47.139Z"
+    },
+    "sample": true
+  },
+  "objective": "أن يتعرّف الطفل على الألوان الأساسية ويربط كل لون بشيء مألوف ويقول اسمه.",
+  "outcomes": [
+    "يسمّي الألوان: أحمر، أزرق، أصفر، أخضر، برتقالي…",
+    "يربط اللون بشيء من حياته اليومية."
+  ],
+  "factCheck": [
+    {
+      "claim": "الألوان المعروضة (أحمر، أزرق، أصفر، أخضر، برتقالي، وردي، بنفسجي) مع أمثلة تقليدية للأشياء المرتبطة بها.",
+      "status": "unverified",
+      "source": ""
+    }
+  ],
+  "scenes": [
+    {
+      "id": "sc_aTmNXi8VJQw2",
+      "index": 0,
+      "title": "Intro",
+      "kind": "intro",
+      "narration": "أهلًا يا أصدقائي! أنا ريّان. اليوم سنتعلّم الألوان مع أصدقاء الحيوانات. هيا بنا!",
+      "narrationSpeed": 1,
+      "durationMode": "auto",
+      "durationSec": 8.94,
+      "subtitles": [
+        {
+          "start": 0.5,
+          "end": 2.08,
+          "text": "أهلًا يا أصدقائي!"
+        },
+        {
+          "start": 2.43,
+          "end": 3.53,
+          "text": "أنا ريّان."
+        },
+        {
+          "start": 3.88,
+          "end": 6.89,
+          "text": "اليوم سنتعلّم الألوان مع أصدقاء الحيوانات."
+        },
+        {
+          "start": 7.24,
+          "end": 8.34,
+          "text": "هيا بنا!"
+        }
+      ],
+      "visual": {
+        "mediaType": "motion_graphics",
+        "background": {
+          "preset": "stage"
+        },
+        "layers": [
+          {
+            "type": "logo",
+            "ref": "wordmark",
+            "x": 0.5,
+            "y": 0.26,
+            "size": 0.2,
+            "anim": "pop",
+            "delay": 0.2
+          },
+          {
+            "type": "character",
+            "ref": "rayyan",
+            "x": 0.5,
+            "y": 0.56,
+            "size": 0.48,
+            "anim": "bob",
+            "delay": 0,
+            "emotion": "wink"
+          }
+        ],
+        "prompt": "Stage with warm spotlight; the EA KIDS wordmark pops in above the host character who waves hello.",
+        "importedAssetId": null
+      },
+      "camera": {
+        "move": "zoom_in",
+        "amount": 0.05
+      },
+      "animationNotes": "Characters bob gently; props float; the key word pops in. Keep motion slow and calm.",
+      "characterNotes": "Use the locked EA KIDS character designs. Do not change colours or proportions.",
+      "audio": {
+        "music": "main",
+        "sfx": [
+          {
+            "at": 0.3,
+            "name": "tada"
+          }
+        ]
+      },
+      "transition": "fade",
+      "review": {
+        "status": "pending",
+        "note": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "sc_xfpigswCKiFU",
+      "index": 1,
+      "title": "أحمر / Red",
+      "kind": "lesson",
+      "narration": "هذا اللون أحمر. ريّان وجد تفاحة حمراء. التفاحة حمراء! قولوا معي: أحمر!",
+      "narrationSpeed": 1,
+      "durationMode": "auto",
+      "durationSec": 8.46,
+      "subtitles": [
+        {
+          "start": 0.5,
+          "end": 2.08,
+          "text": "هذا اللون أحمر."
+        },
+        {
+          "start": 2.43,
+          "end": 4.48,
+          "text": "ريّان وجد تفاحة حمراء."
+        },
+        {
+          "start": 4.83,
+          "end": 5.94,
+          "text": "التفاحة حمراء!"
+        },
+        {
+          "start": 6.29,
+          "end": 7.86,
+          "text": "قولوا معي: أحمر!"
+        }
+      ],
+      "visual": {
+        "mediaType": "motion_graphics",
+        "background": {
+          "preset": "tint",
+          "color": "#FFD6D6"
+        },
+        "layers": [
+          {
+            "type": "prop",
+            "ref": "apple",
+            "x": 0.73,
+            "y": 0.5,
+            "size": 0.48,
+            "anim": "float",
+            "delay": 0.3
+          },
+          {
+            "type": "character",
+            "ref": "rayyan",
+            "x": 0.24,
+            "y": 0.54,
+            "size": 0.58,
+            "anim": "bob",
+            "delay": 0,
+            "emotion": "happy"
+          },
+          {
+            "type": "text",
+            "ref": "",
+            "x": 0.5,
+            "y": 0.13,
+            "size": 0.17,
+            "anim": "pop",
+            "delay": 0.5,
+            "text": "أحمر",
+            "color": "#E5383B"
+          }
+        ],
+        "prompt": "Flat children's illustration, EA KIDS style: Rayyan (Lion cub) with apple, bright tint backdrop, big readable word \"أحمر\".",
+        "importedAssetId": null
+      },
+      "camera": {
+        "move": "pan_left",
+        "amount": 0.05
+      },
+      "animationNotes": "Characters bob gently; props float; the key word pops in. Keep motion slow and calm.",
+      "characterNotes": "Use the locked EA KIDS character designs. Do not change colours or proportions.",
+      "audio": {
+        "music": "main",
+        "sfx": [
+          {
+            "at": 0.4,
+            "name": "pop"
+          }
+        ]
+      },
+      "transition": "slideright",
+      "review": {
+        "status": "pending",
+        "note": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "sc_9gISSknt1HkI",
+      "index": 2,
+      "title": "أزرق / Blue",
+      "kind": "lesson",
+      "narration": "هذا اللون أزرق. نونو وجدت قطرة ماء زرقاء. قطرة الماء زرقاء! قولوا معي: أزرق!",
+      "narrationSpeed": 1,
+      "durationMode": "auto",
+      "durationSec": 9.42,
+      "subtitles": [
+        {
+          "start": 0.5,
+          "end": 2.08,
+          "text": "هذا اللون أزرق."
+        },
+        {
+          "start": 2.43,
+          "end": 4.96,
+          "text": "نونو وجدت قطرة ماء زرقاء."
+        },
+        {
+          "start": 5.31,
+          "end": 6.89,
+          "text": "قطرة الماء زرقاء!"
+        },
+        {
+          "start": 7.24,
+          "end": 8.82,
+          "text": "قولوا معي: أزرق!"
+        }
+      ],
+      "visual": {
+        "mediaType": "motion_graphics",
+        "background": {
+          "preset": "tint",
+          "color": "#D6E9FF"
+        },
+        "layers": [
+          {
+            "type": "prop",
+            "ref": "drop",
+            "x": 0.73,
+            "y": 0.5,
+            "size": 0.48,
+            "anim": "float",
+            "delay": 0.3
+          },
+          {
+            "type": "character",
+            "ref": "nunu",
+            "x": 0.24,
+            "y": 0.54,
+            "size": 0.58,
+            "anim": "bob",
+            "delay": 0,
+            "emotion": "happy"
+          },
+          {
+            "type": "text",
+            "ref": "",
+            "x": 0.5,
+            "y": 0.13,
+            "size": 0.17,
+            "anim": "pop",
+            "delay": 0.5,
+            "text": "أزرق",
+            "color": "#2F80ED"
+          }
+        ],
+        "prompt": "Flat children's illustration, EA KIDS style: Nunu (Bunny) with drop, bright tint backdrop, big readable word \"أزرق\".",
+        "importedAssetId": null
+      },
+      "camera": {
+        "move": "zoom_out",
+        "amount": 0.05
+      },
+      "animationNotes": "Characters bob gently; props float; the key word pops in. Keep motion slow and calm.",
+      "characterNotes": "Use the locked EA KIDS character designs. Do not change colours or proportions.",
+      "audio": {
+        "music": "main",
+        "sfx": [
+          {
+            "at": 0.4,
+            "name": "pop"
+          }
+        ]
+      },
+      "transition": "slideright",
+      "review": {
+        "status": "pending",
+        "note": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "sc_4h9lR7rJeCrh",
+      "index": 3,
+      "title": "أصفر / Yellow",
+      "kind": "lesson",
+      "narration": "هذا اللون أصفر. زقزق وجد موزة صفراء. الموزة صفراء! قولوا معي: أصفر!",
+      "narrationSpeed": 1,
+      "durationMode": "auto",
+      "durationSec": 8.46,
+      "subtitles": [
+        {
+          "start": 0.5,
+          "end": 2.08,
+          "text": "هذا اللون أصفر."
+        },
+        {
+          "start": 2.43,
+          "end": 4.48,
+          "text": "زقزق وجد موزة صفراء."
+        },
+        {
+          "start": 4.83,
+          "end": 5.94,
+          "text": "الموزة صفراء!"
+        },
+        {
+          "start": 6.29,
+          "end": 7.86,
+          "text": "قولوا معي: أصفر!"
+        }
+      ],
+      "visual": {
+        "mediaType": "motion_graphics",
+        "background": {
+          "preset": "tint",
+          "color": "#FFF0B3"
+        },
+        "layers": [
+          {
+            "type": "prop",
+            "ref": "banana",
+            "x": 0.73,
+            "y": 0.5,
+            "size": 0.48,
+            "anim": "float",
+            "delay": 0.3
+          },
+          {
+            "type": "character",
+            "ref": "zaqzaq",
+            "x": 0.24,
+            "y": 0.54,
+            "size": 0.58,
+            "anim": "bob",
+            "delay": 0,
+            "emotion": "happy"
+          },
+          {
+            "type": "text",
+            "ref": "",
+            "x": 0.5,
+            "y": 0.13,
+            "size": 0.17,
+            "anim": "pop",
+            "delay": 0.5,
+            "text": "أصفر",
+            "color": "#FFC400"
+          }
+        ],
+        "prompt": "Flat children's illustration, EA KIDS style: Zaqzaq (Chick) with banana, bright tint backdrop, big readable word \"أصفر\".",
+        "importedAssetId": null
+      },
+      "camera": {
+        "move": "pan_left",
+        "amount": 0.05
+      },
+      "animationNotes": "Characters bob gently; props float; the key word pops in. Keep motion slow and calm.",
+      "characterNotes": "Use the locked EA KIDS character designs. Do not change colours or proportions.",
+      "audio": {
+        "music": "main",
+        "sfx": [
+          {
+            "at": 0.4,
+            "name": "pop"
+          }
+        ]
+      },
+      "transition": "circleopen",
+      "review": {
+        "status": "pending",
+        "note": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "sc_olX58bY_Jq3X",
+      "index": 4,
+      "title": "أخضر / Green",
+      "kind": "lesson",
+      "narration": "هذا اللون أخضر. سلّومة وجدت ورقة شجر خضراء. ورقة الشجر خضراء! قولوا معي: أخضر!",
+      "narrationSpeed": 1,
+      "durationMode": "auto",
+      "durationSec": 9.42,
+      "subtitles": [
+        {
+          "start": 0.5,
+          "end": 2.08,
+          "text": "هذا اللون أخضر."
+        },
+        {
+          "start": 2.43,
+          "end": 4.96,
+          "text": "سلّومة وجدت ورقة شجر خضراء."
+        },
+        {
+          "start": 5.31,
+          "end": 6.89,
+          "text": "ورقة الشجر خضراء!"
+        },
+        {
+          "start": 7.24,
+          "end": 8.82,
+          "text": "قولوا معي: أخضر!"
+        }
+      ],
+      "visual": {
+        "mediaType": "motion_graphics",
+        "background": {
+          "preset": "tint",
+          "color": "#D4F5DF"
+        },
+        "layers": [
+          {
+            "type": "prop",
+            "ref": "leaf",
+            "x": 0.73,
+            "y": 0.5,
+            "size": 0.48,
+            "anim": "float",
+            "delay": 0.3
+          },
+          {
+            "type": "character",
+            "ref": "sallouma",
+            "x": 0.24,
+            "y": 0.54,
+            "size": 0.58,
+            "anim": "bob",
+            "delay": 0,
+            "emotion": "happy"
+          },
+          {
+            "type": "text",
+            "ref": "",
+            "x": 0.5,
+            "y": 0.13,
+            "size": 0.17,
+            "anim": "pop",
+            "delay": 0.5,
+            "text": "أخضر",
+            "color": "#2EAD5B"
+          }
+        ],
+        "prompt": "Flat children's illustration, EA KIDS style: Sallouma (Turtle) with leaf, bright tint backdrop, big readable word \"أخضر\".",
+        "importedAssetId": null
+      },
+      "camera": {
+        "move": "zoom_in",
+        "amount": 0.05
+      },
+      "animationNotes": "Characters bob gently; props float; the key word pops in. Keep motion slow and calm.",
+      "characterNotes": "Use the locked EA KIDS character designs. Do not change colours or proportions.",
+      "audio": {
+        "music": "main",
+        "sfx": [
+          {
+            "at": 0.4,
+            "name": "pop"
+          }
+        ]
+      },
+      "transition": "slideright",
+      "review": {
+        "status": "pending",
+        "note": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "sc_UnftivlkATBd",
+      "index": 5,
+      "title": "برتقالي / Orange",
+      "kind": "lesson",
+      "narration": "هذا اللون برتقالي. ريّان وجد برتقالة برتقالية. البرتقالة برتقالية! قولوا معي: برتقالي!",
+      "narrationSpeed": 1,
+      "durationMode": "auto",
+      "durationSec": 8.46,
+      "subtitles": [
+        {
+          "start": 0.5,
+          "end": 2.08,
+          "text": "هذا اللون برتقالي."
+        },
+        {
+          "start": 2.43,
+          "end": 4.48,
+          "text": "ريّان وجد برتقالة برتقالية."
+        },
+        {
+          "start": 4.83,
+          "end": 5.94,
+          "text": "البرتقالة برتقالية!"
+        },
+        {
+          "start": 6.29,
+          "end": 7.86,
+          "text": "قولوا معي: برتقالي!"
+        }
+      ],
+      "visual": {
+        "mediaType": "motion_graphics",
+        "background": {
+          "preset": "tint",
+          "color": "#FFE2C2"
+        },
+        "layers": [
+          {
+            "type": "prop",
+            "ref": "orange",
+            "x": 0.73,
+            "y": 0.5,
+            "size": 0.48,
+            "anim": "float",
+            "delay": 0.3
+          },
+          {
+            "type": "character",
+            "ref": "rayyan",
+            "x": 0.24,
+            "y": 0.54,
+            "size": 0.58,
+            "anim": "bob",
+            "delay": 0,
+            "emotion": "happy"
+          },
+          {
+            "type": "text",
+            "ref": "",
+            "x": 0.5,
+            "y": 0.13,
+            "size": 0.17,
+            "anim": "pop",
+            "delay": 0.5,
+            "text": "برتقالي",
+            "color": "#FF8A1F"
+          }
+        ],
+        "prompt": "Flat children's illustration, EA KIDS style: Rayyan (Lion cub) with orange, bright tint backdrop, big readable word \"برتقالي\".",
+        "importedAssetId": null
+      },
+      "camera": {
+        "move": "pan_left",
+        "amount": 0.05
+      },
+      "animationNotes": "Characters bob gently; props float; the key word pops in. Keep motion slow and calm.",
+      "characterNotes": "Use the locked EA KIDS character designs. Do not change colours or proportions.",
+      "audio": {
+        "music": "main",
+        "sfx": [
+          {
+            "at": 0.4,
+            "name": "pop"
+          }
+        ]
+      },
+      "transition": "slideright",
+      "review": {
+        "status": "pending",
+        "note": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "sc_EuQ3V_j722uz",
+      "index": 6,
+      "title": "وردي / Pink",
+      "kind": "lesson",
+      "narration": "هذا اللون وردي. نونو وجدت وردة وردية. الوردة وردية! قولوا معي: وردي!",
+      "narrationSpeed": 1,
+      "durationMode": "auto",
+      "durationSec": 8.46,
+      "subtitles": [
+        {
+          "start": 0.5,
+          "end": 2.08,
+          "text": "هذا اللون وردي."
+        },
+        {
+          "start": 2.43,
+          "end": 4.48,
+          "text": "نونو وجدت وردة وردية."
+        },
+        {
+          "start": 4.83,
+          "end": 5.94,
+          "text": "الوردة وردية!"
+        },
+        {
+          "start": 6.29,
+          "end": 7.86,
+          "text": "قولوا معي: وردي!"
+        }
+      ],
+      "visual": {
+        "mediaType": "motion_graphics",
+        "background": {
+          "preset": "tint",
+          "color": "#FFDCEA"
+        },
+        "layers": [
+          {
+            "type": "prop",
+            "ref": "flower",
+            "x": 0.73,
+            "y": 0.5,
+            "size": 0.48,
+            "anim": "float",
+            "delay": 0.3
+          },
+          {
+            "type": "character",
+            "ref": "nunu",
+            "x": 0.24,
+            "y": 0.54,
+            "size": 0.58,
+            "anim": "bob",
+            "delay": 0,
+            "emotion": "happy"
+          },
+          {
+            "type": "text",
+            "ref": "",
+            "x": 0.5,
+            "y": 0.13,
+            "size": 0.17,
+            "anim": "pop",
+            "delay": 0.5,
+            "text": "وردي",
+            "color": "#FF6FA5"
+          }
+        ],
+        "prompt": "Flat children's illustration, EA KIDS style: Nunu (Bunny) with flower, bright tint backdrop, big readable word \"وردي\".",
+        "importedAssetId": null
+      },
+      "camera": {
+        "move": "zoom_out",
+        "amount": 0.05
+      },
+      "animationNotes": "Characters bob gently; props float; the key word pops in. Keep motion slow and calm.",
+      "characterNotes": "Use the locked EA KIDS character designs. Do not change colours or proportions.",
+      "audio": {
+        "music": "main",
+        "sfx": [
+          {
+            "at": 0.4,
+            "name": "pop"
+          }
+        ]
+      },
+      "transition": "circleopen",
+      "review": {
+        "status": "pending",
+        "note": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "sc_u_LuqwBw18r8",
+      "index": 7,
+      "title": "بنفسجي / Purple",
+      "kind": "lesson",
+      "narration": "هذا اللون بنفسجي. سلّومة وجدت عنبًا بنفسجيًا. العنب بنفسجي! قولوا معي: بنفسجي!",
+      "narrationSpeed": 1,
+      "durationMode": "auto",
+      "durationSec": 8.46,
+      "subtitles": [
+        {
+          "start": 0.5,
+          "end": 2.08,
+          "text": "هذا اللون بنفسجي."
+        },
+        {
+          "start": 2.43,
+          "end": 4.48,
+          "text": "سلّومة وجدت عنبًا بنفسجيًا."
+        },
+        {
+          "start": 4.83,
+          "end": 5.94,
+          "text": "العنب بنفسجي!"
+        },
+        {
+          "start": 6.29,
+          "end": 7.86,
+          "text": "قولوا معي: بنفسجي!"
+        }
+      ],
+      "visual": {
+        "mediaType": "motion_graphics",
+        "background": {
+          "preset": "tint",
+          "color": "#E6DAFF"
+        },
+        "layers": [
+          {
+            "type": "prop",
+            "ref": "grapes",
+            "x": 0.73,
+            "y": 0.5,
+            "size": 0.48,
+            "anim": "float",
+            "delay": 0.3
+          },
+          {
+            "type": "character",
+            "ref": "sallouma",
+            "x": 0.24,
+            "y": 0.54,
+            "size": 0.58,
+            "anim": "bob",
+            "delay": 0,
+            "emotion": "happy"
+          },
+          {
+            "type": "text",
+            "ref": "",
+            "x": 0.5,
+            "y": 0.13,
+            "size": 0.17,
+            "anim": "pop",
+            "delay": 0.5,
+            "text": "بنفسجي",
+            "color": "#8E5CF5"
+          }
+        ],
+        "prompt": "Flat children's illustration, EA KIDS style: Sallouma (Turtle) with grapes, bright tint backdrop, big readable word \"بنفسجي\".",
+        "importedAssetId": null
+      },
+      "camera": {
+        "move": "zoom_in",
+        "amount": 0.05
+      },
+      "animationNotes": "Characters bob gently; props float; the key word pops in. Keep motion slow and calm.",
+      "characterNotes": "Use the locked EA KIDS character designs. Do not change colours or proportions.",
+      "audio": {
+        "music": "main",
+        "sfx": [
+          {
+            "at": 0.4,
+            "name": "pop"
+          }
+        ]
+      },
+      "transition": "slideright",
+      "review": {
+        "status": "pending",
+        "note": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "sc_1V4e_IS3az07",
+      "index": 8,
+      "title": "Recap",
+      "kind": "recap",
+      "narration": "ما أجمل الألوان! تعلّمنا اليوم: أحمر، أزرق، أصفر، أخضر، برتقالي، وردي، بنفسجي. هل تتذكّرون كل لون؟",
+      "narrationSpeed": 1,
+      "durationMode": "auto",
+      "durationSec": 9.87,
+      "subtitles": [
+        {
+          "start": 0.5,
+          "end": 2.08,
+          "text": "ما أجمل الألوان!"
+        },
+        {
+          "start": 2.43,
+          "end": 6.86,
+          "text": "تعلّمنا اليوم: أحمر، أزرق، أصفر، أخضر، برتقالي، وردي، بنفسجي."
+        },
+        {
+          "start": 7.21,
+          "end": 9.27,
+          "text": "هل تتذكّرون كل لون؟"
+        }
+      ],
+      "visual": {
+        "mediaType": "motion_graphics",
+        "background": {
+          "preset": "meadow"
+        },
+        "layers": [
+          {
+            "type": "prop",
+            "ref": "apple",
+            "x": 0.16,
+            "y": 0.3,
+            "size": 0.2,
+            "anim": "pulse",
+            "delay": 0.2
+          },
+          {
+            "type": "prop",
+            "ref": "drop",
+            "x": 0.29600000000000004,
+            "y": 0.3,
+            "size": 0.2,
+            "anim": "pulse",
+            "delay": 0.45
+          },
+          {
+            "type": "prop",
+            "ref": "banana",
+            "x": 0.43200000000000005,
+            "y": 0.3,
+            "size": 0.2,
+            "anim": "pulse",
+            "delay": 0.7
+          },
+          {
+            "type": "prop",
+            "ref": "leaf",
+            "x": 0.5680000000000001,
+            "y": 0.3,
+            "size": 0.2,
+            "anim": "pulse",
+            "delay": 0.95
+          },
+          {
+            "type": "prop",
+            "ref": "orange",
+            "x": 0.7040000000000001,
+            "y": 0.3,
+            "size": 0.2,
+            "anim": "pulse",
+            "delay": 1.2
+          },
+          {
+            "type": "prop",
+            "ref": "flower",
+            "x": 0.8400000000000001,
+            "y": 0.3,
+            "size": 0.2,
+            "anim": "pulse",
+            "delay": 1.45
+          },
+          {
+            "type": "character",
+            "ref": "rayyan",
+            "x": 0.5,
+            "y": 0.63,
+            "size": 0.46,
+            "anim": "bob",
+            "delay": 0,
+            "emotion": "proud"
+          }
+        ],
+        "prompt": "All lesson objects in a row; the host looks proud and celebrates.",
+        "importedAssetId": null
+      },
+      "camera": {
+        "move": "zoom_out",
+        "amount": 0.05
+      },
+      "animationNotes": "Characters bob gently; props float; the key word pops in. Keep motion slow and calm.",
+      "characterNotes": "Use the locked EA KIDS character designs. Do not change colours or proportions.",
+      "audio": {
+        "music": "main",
+        "sfx": [
+          {
+            "at": 0.3,
+            "name": "sparkle"
+          }
+        ]
+      },
+      "transition": "fade",
+      "review": {
+        "status": "pending",
+        "note": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "sc_qvp0vCTk5i3y",
+      "index": 9,
+      "title": "Outro",
+      "kind": "outro",
+      "narration": "شكرًا لأنكم تعلّمتم معنا! إلى اللقاء يا أصدقائي!",
+      "narrationSpeed": 1,
+      "durationMode": "auto",
+      "durationSec": 5.56,
+      "subtitles": [
+        {
+          "start": 0.5,
+          "end": 2.55,
+          "text": "شكرًا لأنكم تعلّمتم معنا!"
+        },
+        {
+          "start": 2.9,
+          "end": 4.96,
+          "text": "إلى اللقاء يا أصدقائي!"
+        }
+      ],
+      "visual": {
+        "mediaType": "motion_graphics",
+        "background": {
+          "preset": "sunrise"
+        },
+        "layers": [
+          {
+            "type": "character",
+            "ref": "rayyan",
+            "x": 0.16,
+            "y": 0.58,
+            "size": 0.38,
+            "anim": "wiggle",
+            "delay": 0,
+            "emotion": "happy"
+          },
+          {
+            "type": "character",
+            "ref": "nunu",
+            "x": 0.386,
+            "y": 0.58,
+            "size": 0.38,
+            "anim": "wiggle",
+            "delay": 0.2,
+            "emotion": "happy"
+          },
+          {
+            "type": "character",
+            "ref": "zaqzaq",
+            "x": 0.612,
+            "y": 0.58,
+            "size": 0.38,
+            "anim": "wiggle",
+            "delay": 0.4,
+            "emotion": "happy"
+          },
+          {
+            "type": "character",
+            "ref": "sallouma",
+            "x": 0.8380000000000001,
+            "y": 0.58,
+            "size": 0.38,
+            "anim": "wiggle",
+            "delay": 0.6000000000000001,
+            "emotion": "happy"
+          }
+        ],
+        "prompt": "All four friends wave goodbye in front of a sunrise meadow. Leave empty space at the bottom for end-screen elements.",
+        "importedAssetId": null
+      },
+      "camera": {
+        "move": "zoom_out",
+        "amount": 0.05
+      },
+      "animationNotes": "Characters bob gently; props float; the key word pops in. Keep motion slow and calm.",
+      "characterNotes": "Use the locked EA KIDS character designs. Do not change colours or proportions.",
+      "audio": {
+        "music": "main",
+        "sfx": [
+          {
+            "at": 0.4,
+            "name": "chime"
+          }
+        ]
+      },
+      "transition": "fade",
+      "review": {
+        "status": "pending",
+        "note": ""
+      },
+      "locked": false
+    }
+  ]
+}

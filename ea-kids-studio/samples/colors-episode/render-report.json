@@ -1,0 +1,144 @@
+{
+  "project": "pr_ugOGVIgHMTlI",
+  "mode": "final",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "durationSec": 97.1,
+  "bytes": 16257575,
+  "qc": {
+    "passed": true,
+    "checks": [
+      {
+        "id": "valid_mp4",
+        "label": "Valid MP4 with video and audio streams",
+        "status": "pass",
+        "detail": "h264/aac"
+      },
+      {
+        "id": "resolution",
+        "label": "Resolution 1920×1080",
+        "status": "pass",
+        "detail": "1920×1080"
+      },
+      {
+        "id": "fps",
+        "label": "Frame rate 30 fps",
+        "status": "pass",
+        "detail": "30.00"
+      },
+      {
+        "id": "duration",
+        "label": "Duration matches the timeline",
+        "status": "pass",
+        "detail": "97.10s vs planned 97.10s"
+      },
+      {
+        "id": "black_frames",
+        "label": "No unintended black frames",
+        "status": "pass",
+        "detail": ""
+      },
+      {
+        "id": "clipping",
+        "label": "No audio clipping (peak ≤ −0.5 dB)",
+        "status": "pass",
+        "detail": "peak -1.5 dB"
+      },
+      {
+        "id": "loudness",
+        "label": "Loudness near -16 LUFS",
+        "status": "pass",
+        "detail": "-16.0 LUFS, true peak -1.4 dBTP"
+      },
+      {
+        "id": "audible",
+        "label": "Audio is audible (not silent)",
+        "status": "pass",
+        "detail": "mean -20.4 dB"
+      },
+      {
+        "id": "narration",
+        "label": "Narration present for every scene with text",
+        "status": "pass",
+        "detail": ""
+      },
+      {
+        "id": "caption_speed",
+        "label": "Captions are readable (≤ 17 characters/second)",
+        "status": "pass",
+        "detail": ""
+      },
+      {
+        "id": "sync",
+        "label": "Audio and video lengths agree",
+        "status": "pass",
+        "detail": ""
+      }
+    ]
+  },
+  "production": {
+    "sceneMediaTypes": {
+      "motion_graphics": 10
+    },
+    "narration": [
+      "espeak"
+    ],
+    "music": "in-house synthesised (original)",
+    "aiGeneratedVideoScenes": 0,
+    "syntheticVoice": true
+  },
+  "narrationDraftVoiceNote": "Narration uses the free espeak-ng draft voice (robotic). Replace it with a licensed voice or your own recording before publishing.",
+  "timings": [
+    {
+      "scene": 1,
+      "state": "fresh",
+      "durationMs": 9021
+    },
+    {
+      "scene": 2,
+      "state": "fresh",
+      "durationMs": 9274
+    },
+    {
+      "scene": 3,
+      "state": "fresh",
+      "durationMs": 9035
+    },
+    {
+      "scene": 4,
+      "state": "fresh",
+      "durationMs": 9072
+    },
+    {
+      "scene": 5,
+      "state": "fresh",
+      "durationMs": 9304
+    },
+    {
+      "scene": 6,
+      "state": "fresh",
+      "durationMs": 10012
+    },
+    {
+      "scene": 7,
+      "state": "fresh",
+      "durationMs": 8347
+    },
+    {
+      "scene": 8,
+      "state": "fresh",
+      "durationMs": 9657
+    },
+    {
+      "scene": 9,
+      "state": "fresh",
+      "durationMs": 11646
+    },
+    {
+      "scene": 10,
+      "state": "fresh",
+      "durationMs": 5768
+    }
+  ]
+}

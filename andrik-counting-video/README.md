@@ -28,3 +28,8 @@ When clips for 2-10 exist, drop them in and replace `clip_sprite` usage for each
 `endrick_counting_1_to_10_v7_real_clips.mp4` is built from the user's ten CapCut AI clips (IMG_0320 ... IMG_0347, not committed because of size):
 title card, overview clip (IMG_0347), then ONE to TEN in order, an end card, plus a compact ten-frame and progress stars on top of each clip.
 There is no clip for SIX: it is a picture slide with the TTS voice (`source/timeline7.py`, kind "six"). Replace it with a real clip when available.
+
+## v8 (final structure)
+
+`endrick_counting_1_to_10_v8_final.mp4`: title card, ONE to TEN from the real clips, and the real "See you next time, bye-bye!" clip (IMG_0347) at the end.
+SIX still has no clip: it is a picture slide with the TTS voice. Build scripts: `source/timeline8.py`, `audio_build8.py`, `render8.py`.

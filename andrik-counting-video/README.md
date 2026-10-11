@@ -60,3 +60,12 @@ Captions are now drawn from real alpha layers (Pillow ignores text alpha), so fa
 `endrick_counting_1_to_10_v12_intro.mp4` (61 s): a spoken intro replaces the silent title card: "Hello! I'm Endrick! Today, I will show you how to say the numbers from one to ten in English!"
 The intro uses a still picture of Endrick waving and a synthesized voice (Kokoro, `source/tts_intro.py`), because no real intro clip exists yet.
 When a real intro clip is available, add it as the first item in `source/build12.py` (like the other clips) and drop the synthesized voice-over.
+
+## v13 (built on the user's own compilation IMG_0417)
+
+`endrick_counting_1_to_10_v13_final.mp4` (61 s):
+- the user's "Endrick - Let's Learn Numbers!" logo card as the opening (`source/brand/logo_card.png`),
+- the user's "EA For Kids" badge (cut out of IMG_0417, `source/brand/badge_rgba.png`) on every clip, with the CapCut mark properly removed underneath,
+- all earlier fixes (captions, "Three!" twice, finger cards, dissolves), a star burst on every "Great job!",
+- a closing "Thanks for watching!" card with the badge and the numbers 1-10.
+Build: `source/build13.py` (`audio`, then `video <out.mp4>`); the raw clips are not committed.

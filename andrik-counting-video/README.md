@@ -69,3 +69,8 @@ When a real intro clip is available, add it as the first item in `source/build12
 - all earlier fixes (captions, "Three!" twice, finger cards, dissolves), a star burst on every "Great job!",
 - a closing "Thanks for watching!" card with the badge and the numbers 1-10.
 Build: `source/build13.py` (`audio`, then `video <out.mp4>`); the raw clips are not committed.
+
+## v14 (clean)
+
+`endrick_counting_1_to_10_v14_clean.mp4`: v13 without the dark caption strip and without the finger/ten-frame card.
+Captions rely on a stronger outline/shadow instead. Only clips 1 and 7 (which carry text burned in by the generator) get a light blur, no darkening, under the captions. Build: `source/build14.py`.

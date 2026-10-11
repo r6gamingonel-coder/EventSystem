@@ -38,3 +38,12 @@ SIX still has no clip: it is a picture slide with the TTS voice. Build scripts: 
 
 `endrick_counting_1_to_10_v9_final.mp4`: title card, ONE to TEN all from the real clips (SIX = IMG_0339), then the "See you next time, bye-bye!" clip (IMG_0347).
 No placeholder slides remain. Build scripts: `source/timeline9.py`, `audio_build9.py`, `render9.py`.
+
+## v10 (cleaned clips, captions, fingers)
+
+`endrick_counting_1_to_10_v10_final.mp4` (57 s, 1280x720, 30 fps):
+- CapCut mark removed from every clip (`source/wm_template.py`, mask `source/wm_mask.png`) and a "Count with Endrick" badge placed over the spot.
+- Text burned into two source clips is hidden under a frosted caption strip; new karaoke-style captions show what is said (speech was recognised with Whisper small.en via sherpa-onnx, see `source/asr_run.py`, `source/words.py`).
+- "Three!" is said twice (the third repetition and its video are cut with a short dissolve).
+- Every number has a finger-counting card (hands + ten-frame) that fills in with the first spoken word.
+- All edit points are in `source/spec10.py`; build with `source/build10.py` (`audio`, then `video <out.mp4>`).

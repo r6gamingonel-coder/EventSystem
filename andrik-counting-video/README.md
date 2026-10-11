@@ -47,3 +47,10 @@ No placeholder slides remain. Build scripts: `source/timeline9.py`, `audio_build
 - "Three!" is said twice (the third repetition and its video are cut with a short dissolve).
 - Every number has a finger-counting card (hands + ten-frame) that fills in with the first spoken word.
 - All edit points are in `source/spec10.py`; build with `source/build10.py` (`audio`, then `video <out.mp4>`).
+
+## v11 (continuous)
+
+`endrick_counting_1_to_10_v11_continuous.mp4`: same content as v10, but every join is a 0.35 s dissolve instead of a cut.
+The previous clip holds its last frame while it fades out; the badge and counting card stay in place so only their contents change;
+captions fade out/in separately. Audio is joined end to start with no overlap (no two voices at once).
+Captions are now drawn from real alpha layers (Pillow ignores text alpha), so fades work and the shadow is soft. Build: `source/build11.py`.

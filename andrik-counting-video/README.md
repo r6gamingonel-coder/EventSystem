@@ -33,3 +33,8 @@ There is no clip for SIX: it is a picture slide with the TTS voice (`source/time
 
 `endrick_counting_1_to_10_v8_final.mp4`: title card, ONE to TEN from the real clips, and the real "See you next time, bye-bye!" clip (IMG_0347) at the end.
 SIX still has no clip: it is a picture slide with the TTS voice. Build scripts: `source/timeline8.py`, `audio_build8.py`, `render8.py`.
+
+## v9 (all ten real clips)
+
+`endrick_counting_1_to_10_v9_final.mp4`: title card, ONE to TEN all from the real clips (SIX = IMG_0339), then the "See you next time, bye-bye!" clip (IMG_0347).
+No placeholder slides remain. Build scripts: `source/timeline9.py`, `audio_build9.py`, `render9.py`.

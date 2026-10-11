@@ -54,3 +54,9 @@ No placeholder slides remain. Build scripts: `source/timeline9.py`, `audio_build
 The previous clip holds its last frame while it fades out; the badge and counting card stay in place so only their contents change;
 captions fade out/in separately. Audio is joined end to start with no overlap (no two voices at once).
 Captions are now drawn from real alpha layers (Pillow ignores text alpha), so fades work and the shadow is soft. Build: `source/build11.py`.
+
+## v12 (intro)
+
+`endrick_counting_1_to_10_v12_intro.mp4` (61 s): a spoken intro replaces the silent title card: "Hello! I'm Endrick! Today, I will show you how to say the numbers from one to ten in English!"
+The intro uses a still picture of Endrick waving and a synthesized voice (Kokoro, `source/tts_intro.py`), because no real intro clip exists yet.
+When a real intro clip is available, add it as the first item in `source/build12.py` (like the other clips) and drop the synthesized voice-over.
